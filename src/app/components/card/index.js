@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Card = ({ el }) => {
@@ -9,10 +10,12 @@ const Card = ({ el }) => {
         width={200}
         height={200}
         alt={`imagem representativa do produto ${el.title}`}
+        placeholder="blur"
+        blurDataURL="/placeholder.jpg"
       />
       <h3>{el.title}</h3>
       <p>{el.price}</p>
-      <button>Ver detalhes</button>
+      <Link href={`product/${el.id}`}>Ver detalhes</Link>
     </article>
   );
 };

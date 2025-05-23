@@ -1,4 +1,5 @@
 import { Api } from "@/app/service/api";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -14,7 +15,18 @@ const ProductDetails = async ({ params }) => {
   return (
     <section>
       <article>
+        <Image
+          src={product.image}
+          width={200}
+          height={200}
+          alt={`imagem representativa do produto ${product.title}`}
+          placeholder="blur"
+          blurDataURL="/placeholder.jpg"
+        />
         <h3>{product.title}</h3>
+        <p>{product.description}</p>
+        <p>{product.category}</p>
+        <p>{product.price}</p>
       </article>
     </section>
   );
