@@ -32,4 +32,23 @@ export const Api = {
       );
     }
   },
+  async getById(id) {
+    try {
+      const response = await fetch(`${BASE_URL}/${id}`, {
+        next: { revalidate: REVALIDATE },
+      });
+      if (!response.ok) {
+        throw new Error(
+          "A api respondeu, mas houve algum problema com os dados" +
+            response.statusText
+        );
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw new Error(
+        "Ocorreu uma falha ao buscar os produtos" + error.message
+      );
+    }
+  },
 };
