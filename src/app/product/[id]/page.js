@@ -1,8 +1,17 @@
-import { Api } from "@/app/service/api";
-import Image from "next/image";
+import CardDetails from "@/components/cardDatails";
+import { Api } from "@/service/api";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const product = await Api.getById(id);
+  if (!product) {
+    return { title: "Produto não encontrado" };
+  }
+  return { title: product.title, description: product.description };
+}
 //uso o params para pegar o id do produto
 //e fazer a busca na API, retornando o produto específico
 //matendo os os recursos do SSG
@@ -14,20 +23,8 @@ const ProductDetails = async ({ params }) => {
   }
   return (
     <section>
-      <article>
-        <Image
-          src={product.image}
-          width={200}
-          height={200}
-          alt={`imagem representativa do produto ${product.title}`}
-          placeholder="blur"
-          blurDataURL="/placeholder.jpg"
-        />
-        <h3>{product.title}</h3>
-        <p>{product.description}</p>
-        <p>{product.category}</p>
-        <p>{product.price}</p>
-      </article>
+      <CardDetails product={product} />
+      <Link href={"/"}>Voltar para a vitrine</Link>
     </section>
   );
 };

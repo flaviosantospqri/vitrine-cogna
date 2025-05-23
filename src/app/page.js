@@ -1,7 +1,7 @@
 import React from "react";
-import { Api } from "./service/api";
+import { Api } from "../service/api";
 import Head from "next/head";
-import Gallery from "./components/gallery";
+import Gallery from "../components/gallery";
 
 const Home = async () => {
   //Após o tratamento da API, no arquivo responsável pego o resultado aqui, desta forma, não me desfaço do SSG.
