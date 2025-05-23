@@ -1,0 +1,27 @@
+.container {
+    width: 100%;
+    max-width: 300px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+
+    a {
+        border: 1px solid #00000052;
+        height: 40px;
+        border-radius: 8px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: #1c0f2a;
+            border: none;
+        }
+    }
+
+}
