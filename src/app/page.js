@@ -8,7 +8,7 @@ const Home = async () => {
   const products = await Api.getAll();
 
   //Dou uma resposta visual ao usuário
-  if (!products) {
+  if (!products || products.length === 0) {
     return <p>Os produtos ainda não foram carregados</p>;
   }
   return (
