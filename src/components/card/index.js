@@ -1,17 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import style from "./card.module.css";
 
 const Card = ({ el }) => {
   return (
-    <article>
+    <article className={style.container}>
       <Image
         src={el.image}
-        width={200}
-        height={200}
+        width={300}
+        height={300}
         alt={`imagem representativa do produto ${el.title}`}
         placeholder="blur"
         blurDataURL="/placeholder.jpg"
+        style={{ objectFit: "cover", borderRadius: "8px" }}
       />
       <h3>{el.title}</h3>
       <p>{el.price}</p>
