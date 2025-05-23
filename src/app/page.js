@@ -1,25 +1,12 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { fetchAllData } from "./lib/products";
+import React from "react";
+import { Api } from "./service/api";
 
-const Home = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const prod = await fetchAllData();
-      if (prod) {
-        setProducts(prod);
-      }
-    };
-    getData();
-  }, []);
-  console.log(products);
+const Home = async () => {
+  const products = await Api.getAll();
   return (
     <div>
-      <h1>Home</h1>
+      <h1>{products[0].title}</h1>
     </div>
   );
 };
-
 export default Home;
