@@ -7,6 +7,11 @@ import { Api } from "../service/api";
 export const metadata = {
   title: "Cogna | Vitrine de Produtos",
   description: "A maior rede de educação do Brasil | Produtos Martech",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 const Home = async () => {
@@ -28,7 +33,10 @@ const Home = async () => {
 
         <div className={style.container}>
           <section className={style.banner}>
-            <h1>Produtos Exclusivos da Martech By Cogna</h1>
+            <h1>
+              Produtos Exclusivos Martech <br />{" "}
+              <span className={style.target}>By Cogna</span>
+            </h1>
             <p>A melhor qualidade em vestuário escolar/universitário.</p>
           </section>
         </div>

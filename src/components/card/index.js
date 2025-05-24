@@ -9,11 +9,11 @@ const Card = ({ el }) => {
       <Image
         src={el.image}
         width={300}
-        height={300}
+        height={200}
         alt={`imagem representativa do produto ${el.title}`}
         placeholder="blur"
         blurDataURL="/placeholder.jpg"
-        style={{ objectFit: "cover", borderRadius: "8px" }}
+        style={{ objectFit: "cover" }}
       />
       <h3>{el.title}</h3>
       <p>{el.price}</p>
