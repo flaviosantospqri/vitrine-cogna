@@ -6,6 +6,14 @@
  */
 
 export const formatCurrencyBr = (value) => {
+  const num = parseFloat(
+    typeof value === "string" ? value.replace(",", ".") : value
+  );
+
+  if (typeof num !== "number" || isNaN(num)) {
+    console.error("Invalid value for currency formatting:", value);
+    return value;
+  }
   try {
     const options = {
       style: "currency",
@@ -13,7 +21,7 @@ export const formatCurrencyBr = (value) => {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     };
-    return new Intl.NumberFormat("pt-BR", options).format(value);
+    return new Intl.NumberFormat("pt-BR", options).format(num);
   } catch (error) {
     console.error("Error formatting currency:", error);
     return value;
@@ -28,6 +36,13 @@ export const formatCurrencyBr = (value) => {
  */
 
 export const formatCurrencyUSA = (value) => {
+  const num = parseFloat(
+    typeof value === "string" ? value.replace(",", ".") : value
+  );
+  if (typeof num !== "number" || isNaN(num)) {
+    console.error("Invalid value for currency formatting:", value);
+    return value;
+  }
   try {
     const options = {
       style: "currency",
@@ -35,7 +50,7 @@ export const formatCurrencyUSA = (value) => {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     };
-    return new Intl.NumberFormat("en-US", options).format(value);
+    return new Intl.NumberFormat("en-US", options).format(num);
   } catch (error) {
     console.error("Error formatting currency:", error);
     return value;
