@@ -7,7 +7,7 @@ import { formatCurrencyBr } from "@/utils";
 const Card = ({ product }) => {
   const formattedValue = formatCurrencyBr(product.price);
   return (
-    <article className={style.container}>
+    <article data-testid="card" className={style.container}>
       <Image
         src={product.image}
         width={300}
