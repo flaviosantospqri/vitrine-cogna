@@ -2,7 +2,9 @@ import Image from "next/image";
 import React from "react";
 import style from "./cardDetails.module.css";
 import Link from "next/link";
+import { formatCurrencyBr } from "@/utils";
 const CardDetails = ({ product }) => {
+  const formattedValue = formatCurrencyBr(product.price);
   return (
     <section className={style.container}>
       <article className={style.info_img}>
@@ -19,7 +21,9 @@ const CardDetails = ({ product }) => {
         <h3 className={style.info_product_title}>{product.title}</h3>
         <p className={style.info_product_description}>{product.description}</p>
         <p className={style.info_product_category}>{product.category}</p>
-        <p className={style.info_product_price}>{product.price}</p>
+        <p className={style.info_product_price}>
+          {formattedValue ? formattedValue : product.price}
+        </p>
         <p className={style.info_product_rating}>
           Avaliação: {product.rating.rate} ({product.rating.count})
         </p>

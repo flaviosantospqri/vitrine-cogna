@@ -10,8 +10,8 @@ const Gallery = ({ products }) => {
         <p>Selecione o produto desejado e veja mais detalhes.</p>
       </section>
       <section className={style.grid}>
-        {products.map((el) => (
-          <Card key={el.id} el={el} />
+        {products.map((item) => (
+          <Card key={item.id} product={item} />
         ))}
       </section>
     </div>
