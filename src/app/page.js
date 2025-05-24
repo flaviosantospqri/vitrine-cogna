@@ -14,6 +14,9 @@ export const metadata = {
   },
 };
 
+//Não adicioner o filtro aqui, pois o optei por manter o mesmo na Galeria de Produtos
+//e utilizar o use client para garantir que o componente seja renderizado no lado do cliente
+//mantendo a Home como uma página estática, aproveitando os recursos do SSG (Static Site Generation)
 const Home = async () => {
   try {
     const products = await Api.getAll();
