@@ -1,8 +1,8 @@
-import CardDetails from "@/components/cardDatails";
-import { Api } from "@/service/api";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import React from "react";
+import CardDetails from "@/components/cardDetails";
+import { Api } from "@/service/api";
+import { notFound } from "next/navigation";
+import style from "./product.module.css";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -22,9 +22,8 @@ const ProductDetails = async ({ params }) => {
     return notFound();
   }
   return (
-    <section>
+    <section className={style.container}>
       <CardDetails product={product} />
-      <Link href={"/"}>Voltar para a vitrine</Link>
     </section>
   );
 };
