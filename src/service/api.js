@@ -1,11 +1,14 @@
 // Criei variáveis de Ambiente para melhor controle
 // e evitar exposição no client Side.
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-const REVALIDATE = 60;
+const REVALIDATE = 60000;
 
 /**
- * Exporta a conexão com a API, para melhor uso do SSG
- * @export {getAll()} método para buscar dos dados na API.
+ * Exporta a conexão com a API, listando os métodos disponíveis.
+ * @module Api
+ * @typedef {Object} Api
+ * @property {function} getAll - Busca todos os dados da API.
+ * @property {function} getById - Busca um produto específico pelo ID.
  */
 export const Api = {
   /**
@@ -32,6 +35,13 @@ export const Api = {
       );
     }
   },
+
+  /**
+   * Busca produto específico pelo ID.
+   * @param {string} id - ID do produto a ser buscado.
+   * @throws {Error} Tratamento de erros.
+   * @returns {Promise<Object>} Objeto do produto.
+   */
   async getById(id) {
     try {
       const response = await fetch(`${BASE_URL}/${id}`, {
