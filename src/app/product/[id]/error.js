@@ -7,7 +7,7 @@ export default function Error({ error }) {
   console.error("Erro capturado na rota [id]:", error);
 
   return (
-    <article className={style.error_page}>
+    <article>
       <h2>Ocorreu um erro ao carregar o produto.</h2>
       <p>Parece que está tentando acessar um produto, que ainda não temos. </p>
       <p>Mas fique tranquilo... Amanhã estará disponível</p>
