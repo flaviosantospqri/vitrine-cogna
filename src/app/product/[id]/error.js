@@ -1,4 +1,3 @@
-import Link from "next/link";
 import style from "./product.module.css";
 // Usando o error.js para capturar o erro
 // e exibir uma mensagem personalizada para o usuário
@@ -13,7 +12,7 @@ export default function Error({ error }) {
       <h2>Ocorreu um erro ao carregar o produto.</h2>
       <p>Parece que está tentando acessar um produto, que ainda não temos. </p>
       <p>Mas fique tranquilo... Amanhã estará disponível</p>
-      <Link href={"/"}>Voltar a Galeria</Link>
+      <a href={"/"}>Voltar a Galeria</a>
     </article>
   );
 }
