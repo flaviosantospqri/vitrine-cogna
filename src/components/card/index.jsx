@@ -5,13 +5,13 @@ import style from "./card.module.css";
 import { formatCurrencyBr } from "@/utils";
 import Skeleton from "../skeleton";
 
-const Card = ({ product }) => {
+const Card = ({ product, skeletonDelay = 100 }) => {
   const [showSkeleton, setShowSkeleton] = useState(true);
 
   //Uso um pequeno delay para o skeleton ser perceptível por algum momento
   //até mesmo em internet rápida, sem impactar na UX
   useEffect(() => {
-    const timer = setTimeout(() => setShowSkeleton(false), 100);
+    const timer = setTimeout(() => setShowSkeleton(false), skeletonDelay);
     return () => clearTimeout(timer);
   }, []);
 
