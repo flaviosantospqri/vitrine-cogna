@@ -54,20 +54,7 @@
   background: radial-gradient(circle at 30% 30%, #d6cfff, #9b8bff);
   border-radius: 50%;
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.1);
-  animation: rise 5s ease-out forwards;
   z-index: 2;
-}
-
-@keyframes rise {
-  0% {
-    transform: translate(-50%, 100px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translate(-50%, 0);
-    opacity: 1;
-  }
 }
 
 .banner {
@@ -82,8 +69,7 @@
   h1 {
     font-size: 3rem;
     font-weight: 700;
-    animation: floatUp 2s ease-out 0.5s forwards;
-    opacity: 0;
+    opacity: 1;
   }
 
   p {
@@ -91,8 +77,7 @@
     color: #ccc;
     max-width: 500px;
     margin: 0 auto;
-    animation: floatUp 2s ease-out 1s forwards;
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -112,27 +97,19 @@
     background-size: 80px 80px;
     animation: animateStars 60s linear infinite;
     opacity: 0.2;
-  }
-}
-
-.floating_lights::after {
-  content: '';
-  position: absolute;
-  width: 300%;
-  height: 300%;
-  background: radial-gradient(circle, #ffffff11 0.5px, transparent 1px);
-  background-size: 120px 120px;
-  animation: animateStarsReverse 90s linear infinite;
-  opacity: 0.1;
-}
-
-@keyframes animateStarsReverse {
-  from {
-    transform: translateY(0) rotate(0deg);
+    will-change: transform;
   }
 
-  to {
-    transform: translateY(50px) rotate(-360deg);
+  &::after {
+    content: '';
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, #ffffff11 0.5px, transparent 1px);
+    background-size: 120px 120px;
+    animation: animateStarsReverse 90s linear infinite;
+    opacity: 0.1;
+    will-change: transform;
   }
 }
 
@@ -146,15 +123,13 @@
   }
 }
 
-@keyframes floatUp {
-  0% {
-    transform: translateY(30px);
-    opacity: 0;
+@keyframes animateStarsReverse {
+  from {
+    transform: translateY(0) rotate(0deg);
   }
 
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+  to {
+    transform: translateY(50px) rotate(-360deg);
   }
 }
 
