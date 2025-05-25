@@ -163,10 +163,10 @@ npx vitest run
 ## 📊 Qualidade do Projeto (PageSpeed)
 
 **Teste de performance e acessibilidade no Mobile**  
-![Imagem representando o teste para mobile](https://i.imgur.com/6IgBbSg.png)
+![Imagem representando o teste para mobile](https://i.imgur.com/1zUpGNI.png)
 
 **Teste de performance e acessibilidade no Desktop**  
-![Imagem representando o teste para desktop](https://i.imgur.com/Z5ZiNOP.png)
+![Imagem representando o teste para desktop](https://i.imgur.com/WC7vStF.png)
 
 ---
 ## 🚀 Performance e SEO

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import style from "./product.module.css";
 // Usando o error.js para capturar o erro
