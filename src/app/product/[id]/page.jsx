@@ -1,8 +1,8 @@
 import React from "react";
-import CardDetails from "@/components/cardDetails";
-import { Api } from "@/service/api";
 import { notFound } from "next/navigation";
 import style from "./product.module.css";
+import { Api } from "@/service/api";
+import CardDetails from "@/components/cardDetails";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
