@@ -10,7 +10,6 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -33,8 +32,8 @@ const Home = async () => {
           <title>{metadata.title}</title>
           <meta name="description" content={metadata.description} />
         </Head>
-
         <div className={style.container}>
+          <div className={style.floating_lights}></div>
           <section className={style.banner}>
             <h1>
               Produtos Exclusivos Martech <br />{" "}

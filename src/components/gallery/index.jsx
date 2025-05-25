@@ -30,23 +30,25 @@ const Gallery = ({ products }) => {
 
   return (
     <div className={style.container}>
-      <section className={style.banner}>
-        <h2>Produtos</h2>
-        <p>Selecione o produto desejado e veja mais detalhes.</p>
+      <section className={style.content_filter}>
+        <h2>Nossos principais produtos</h2>
+        <p>Clique em ver detalhes e saiba mais.</p>
 
-        <label htmlFor="categoryFilter">Filtrar por categoria:</label>
-        <select
-          id="categoryFilter"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          style={{ marginLeft: "10px" }}
-        >
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat === "all" ? "Todas" : cat}
-            </option>
-          ))}
-        </select>
+        <article className={style.content_filter_select}>
+          <label htmlFor="categoryFilter">Filtrar por categoria:</label>
+          <select
+            id="categoryFilter"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            style={{ marginLeft: "10px" }}
+          >
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat === "all" ? "Todas" : cat}
+              </option>
+            ))}
+          </select>
+        </article>
       </section>
 
       <section className={style.grid}>

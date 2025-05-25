@@ -1,13 +1,27 @@
 
+![Next.js](https://img.shields.io/badge/Next.js-15-blue?logo=next.js)
+![Vitest](https://img.shields.io/badge/Tested%20with-Vitest-6E9EFF?logo=vitest)
+![Status](https://img.shields.io/badge/status-beta-yellow)
+
 # Vitrine de Produtos - Next.js
 
-Este projeto é uma mini vitrine de produtos desenvolvida com **Next.js** (JavaScript puro, sem TypeScript), consumindo dados da API externa [Fake Store API](https://fakestoreapi.com/products).
+Este projeto é uma mini vitrine de produtos desenvolvida com **Next.js** 
+Este projeto foi desenvolvido com foco especial em **SEO, acessibilidade e performance**, aplicando as melhores práticas modernas do Next.js 14+:
+(JavaScript puro, sem TypeScript), consumindo dados da API externa [Fake Store API](https://fakestoreapi.com/products).
+
+- Static Site Generation (SSG) com `generateStaticParams`
+- Pré-renderização de rotas dinâmicas em tempo de build
+- Otimização de imagens e navegação
+- Responsividade e Mobile First
+---
 
 ## ✅ Funcionalidades
 
 - Listagem de produtos com imagem, nome e preço.
 - Filtro por categoria na Home.
 - Página de detalhes para cada produto.
+- Página de erro personalizada caso o produto não exista.
+- Página 404 personalizada para rotas inexistentes.
 - Responsividade para mobile, tablet e desktop.
 - Otimização de performance e SEO.
 - Acessibilidade com uso correto de semântica, atributos `alt` e `label`.
@@ -26,8 +40,9 @@ Este projeto é uma mini vitrine de produtos desenvolvida com **Next.js** (JavaS
 
 ## ⚠️ Observação sobre os testes
 
-Optamos pelo uso do **Vitest** ao invés de **Jest** devido a melhor compatibilidade com as versões mais recentes do Next.js, evitando problemas com Babel e configurações complexas.  
-**Vitest** é mais leve, moderno e possui integração nativa com ESM, alinhando-se ao ecossistema atual do Next.js.
+Optei pelo uso do **Vitest** ao invés do tradicional **Jest**, devido à crescente desatualização do ecossistema do Babel, que o Jest ainda depende fortemente.  
+Com a chegada do **Next.js 14**, a tendência é caminhar para ambientes **ESM-first**, onde ferramentas como o Vitest se destacam por sua leveza, simplicidade e performance.  
+Essa escolha nos prepara melhor para a progressão da stack e adoção de novas features sem sobrecarga de configuração.
 
 ---
 
@@ -37,7 +52,7 @@ Optamos pelo uso do **Vitest** ao invés de **Jest** devido a melhor compatibili
 
 - Node.js 18.x ou superior
 - npm ou yarn
-- Configurar as variáveis de ambiente `.env.local` conforme necessário (mesmo que não exista nenhuma variável obrigatória agora, manteremos este padrão para futuras expansões).
+- Configurar as variáveis de ambiente `.env.local` (mesmo que não existam variáveis obrigatórias no momento).
 
 ---
 
@@ -54,19 +69,24 @@ cd vitrine-cogna
 npm install
 ```
 
-> 💡 Alternativamente, use `yarn install` se preferir.
+> 💡 Alternativamente, use `yarn install`.
+> para rodar, use `yarn dev` se preferir.
+
 
 ---
 
 ### Ambiente
 
-Crie um arquivo `.env.local` na raiz do projeto:  
+Crie um arquivo `.env.local` na raiz do projeto:
 
 ```bash
 touch .env.local
 ```
 
-Atualmente, não há variáveis obrigatórias, mas o arquivo deve existir para manter o padrão Next.js.
+Atualmente, tem apenas a API como variável de ambiente, que deve nomea-la como:
+```bash
+NEXT_PUBLIC_API_URL
+```
 
 ---
 
@@ -78,12 +98,13 @@ npm run dev
 
 Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar a aplicação.
 
-## Aplicação Disponível na Rede
+---
 
-Caso não queira baixar a aplicação e rodar em sua máquina, pode conferir a aplicação pelo o link abaixo. 
-Sem a necessidade de configurações. 
+## 🌐 Aplicação Disponível Online
 
-Abra [https://vitrine-cogna.vercel.app/](https://vitrine-cogna.vercel.app/) no navegador para visualizar a aplicação.
+Caso não queira baixar a aplicação e rodar em sua máquina, pode conferir a aplicação pelo link abaixo:
+
+🔗 [https://vitrine-cogna.vercel.app/](https://vitrine-cogna.vercel.app/)
 
 ---
 
@@ -97,7 +118,7 @@ O projeto possui testes unitários implementados com **Vitest**.
 npm run test
 ```
 
-ou 
+ou
 
 ```bash
 npx vitest run
@@ -109,16 +130,16 @@ npx vitest run
 
 - `/components` → Componentes reutilizáveis (`Gallery`, `Card`, etc.)
 - `/App` → Páginas do Next.js (Home, produto/[id])
-- `/utils` → Funções utiliárias para formatação de moeda
+- `/utils` → Funções utilitárias para formatação de moeda
 - `/service` → Serviço de conexão com a API
 
 ---
 
-## ✅ Boas práticas implementadas
+## 🧠 Diferenciais Técnicos
 
 - Navegação otimizada com `next/link` e `prefetch`.
 - Otimização de imagens com `next/image`.
-- SEO básico com `next/head`.
+- SEO básico com `next/head` e metadata exportável.
 - Estrutura semântica e acessível.
 - Performance com `useMemo` e renderização client-side controlada.
 - Código comentado explicando decisões técnicas.
@@ -127,24 +148,55 @@ npx vitest run
 
 ## 💡 Decisões técnicas importantes
 
-- **SEO**: SEO de forma estratégica. A aplicação possui apenas duas páginas e ambas estão otimizadas para o SEO.
-- **Mobile First**: As páginas foram construidas em Mobile First, para melhorar a responsividade.
-- **"use client"**: Necessário para permitir hooks de estado e memorização. Somente na Galeria, deixando os demais como SSG
-- **"Next/Head""**: Um pequena consideração, para as aplicações NextJs, 14+ não é mais aconselhavel o uso de Next/Head e sim, de metadatas exportáveis. 
-- **Filtro por categoria**: melhora usabilidade e organização.
-- **Vitest**: escolha estratégica para simplificação e compatibilidade com Next.js. Nas ver
-- **Sem SSR ou SSG para a galeria**: decisão tomada pois depende de interações de usuário em tempo real, como seleção de categoria.
+- **SEO**: As duas páginas da aplicação estão estrategicamente otimizadas.
+- **Mobile First**: Layout pensado para dispositivos móveis primeiro.
+- **"use client"**: Utilizado somente onde necessário (como na galeria), aproveitando SSG nas demais páginas.
+- **Head vs Metadata**: Preparação para adoção do novo padrão de `metadata` do Next.js 14+.
+- **Filtro por categoria**: Melhora a navegação e experiência do usuário.
+- **Vitest**: Escolha pensada para compatibilidade, performance e futura evolução da stack.
+- **Página de erro personalizada**: Se o usuário acessar um produto inexistente, uma página customizada será exibida.
+- **Página 404 personalizada**: Qualquer rota inválida exibe uma interface amigável ao usuário.
+- **Controlador de estado**: Não foi implementado por simplicidade do projeto atual. Contudo, os componentes foram estruturados de forma a permitir fácil integração futura com ferramentas como Redux ou Zustand.
 
 ---
 
-## Qualidade do Projeto de acordo com o PegeSpeed
-**Teste de Performace e Acessibilidade no Mobile**
-![Imagem representando o teste para mobile](https://i.imgur.com/6IgBbSg.png, "Teste Para Mobile")
+## 📊 Qualidade do Projeto (PageSpeed)
 
-**Teste de Performace e Acessibilidade no Desktop**
-![Imagem representando o teste para mobile](https://i.imgur.com/Z5ZiNOP.png, "Teste Para Desktop")
+**Teste de performance e acessibilidade no Mobile**  
+![Imagem representando o teste para mobile](https://i.imgur.com/6IgBbSg.png)
+
+**Teste de performance e acessibilidade no Desktop**  
+![Imagem representando o teste para desktop](https://i.imgur.com/Z5ZiNOP.png)
+
+---
+## 🚀 Performance e SEO
+
+A aplicação foi desenvolvida com **foco especial em performance e SEO** desde o início.
+
+Utilizando **Next.js 14+** com **Static Site Generation (SSG)** e `generateStaticParams`, todas as rotas são **pré-renderizadas em build time**, garantindo carregamento instantâneo, excelente indexação por mecanismos de busca e uma experiência de usuário extremamente rápida.
+
+### ✅ Destaques do build:  
+- ✅ **Todas as páginas são geradas estaticamente**
+- ✅ **Carregamento inicial leve** (JS compartilhado ~101 kB)
+- ✅ **Rotas dinâmicas pré-construídas** com `generateStaticParams`
+- ✅ **Rota de erro personalizada (`/not-found`) pré-renderizada**
+- ✅ **Chunks otimizados para cache e revalidação automática (≈17h)**
+
+Essas práticas não apenas reduzem o tempo de carregamento como também garantem que a aplicação seja altamente performática mesmo em conexões lentas — ideal para SEO e usabilidade em dispositivos móveis.
+
+### Preview: 
+**Home Page - Banner**
+ ![Imagem do Banner inicial da aplicação](https://i.imgur.com/IiYOZqW.png)
+ **Home Page - Gallery**
+ ![Imagem do Galeria inicial da aplicação](https://i.imgur.com/mJgk3k0.png)
+ **Product - [ID]**
+ ![Imagem da página de detalhes do produto](https://i.imgur.com/bJg1qsE.png)
+ **Not Found**
+ ![Imagem da página, para quando o usuário tentar acessar um url indisponível](https://i.imgur.com/9FwB4Sc.png)
+ **Error - Produto não encontrado**
+ ![Imagem da página, para quando o usuário tentar acessar um produto indisponível](https://i.imgur.com/Z9KcFbk.png)
 
 
 ## ✍️ Autor
 
-Desenvolvido por [Flávio Santos](https://github.com/flaviosantospqri).  
+Desenvolvido por [Flávio Santos](https://github.com/flaviosantospqri)
