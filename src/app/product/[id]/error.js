@@ -1,3 +1,4 @@
+"use client";
 // Usando o error.js para capturar o erro
 // e exibir uma mensagem personalizada para o usuário
 // e redirecionar para a galeria
