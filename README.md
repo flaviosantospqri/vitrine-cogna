@@ -78,6 +78,13 @@ npm run dev
 
 Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar a aplicação.
 
+## Aplicação Disponível na Rede
+
+Caso não queira baixar a aplicação e rodar em sua máquina, pode conferir a aplicação pelo o link abaixo. 
+Sem a necessidade de configurações. 
+
+Abra [https://vitrine-cogna-cfl6.vercel.app/](https://vitrine-cogna-cfl6.vercel.app/) no navegador para visualizar a aplicação.
+
 ---
 
 ## ✅ Rodar os testes
@@ -101,9 +108,9 @@ npx vitest run
 ## 📄 Estrutura do Projeto
 
 - `/components` → Componentes reutilizáveis (`Gallery`, `Card`, etc.)
-- `/pages` → Páginas do Next.js (Home, Detalhes)
-- `/styles` → Estilos com CSS Modules
-- `/tests` → Testes unitários
+- `/App` → Páginas do Next.js (Home, produto/[id])
+- `/utils` → Funções utiliárias para formatação de moeda
+- `/service` → Serviço de conexão com a API
 
 ---
 
@@ -120,18 +127,23 @@ npx vitest run
 
 ## 💡 Decisões técnicas importantes
 
-- **"use client"**: necessário para permitir hooks de estado e memorização.
+- **SEO**: SEO de forma estratégica. A aplicação possui apenas duas páginas e ambas estão otimizadas para o SEO.
+- **Mobile First**: As páginas foram construidas em Mobile First, para melhorar a responsividade.
+- **"use client"**: Necessário para permitir hooks de estado e memorização. Somente na Galeria, deixando os demais como SSG
+- **"Next/Head""**: Um pequena consideração, para as aplicações NextJs, 14+ não é mais aconselhavel o uso de Next/Head e sim, de metadatas exportáveis. 
 - **Filtro por categoria**: melhora usabilidade e organização.
-- **Vitest**: escolha estratégica para simplificação e compatibilidade com Next.js.
+- **Vitest**: escolha estratégica para simplificação e compatibilidade com Next.js. Nas ver
 - **Sem SSR ou SSG para a galeria**: decisão tomada pois depende de interações de usuário em tempo real, como seleção de categoria.
 
 ---
 
-## 📃 Licença
+## Qualidade do Projeto de acordo com o PegeSpeed
+**Teste de Performace e Acessibilidade no Mobile**
+![Imagem representando o teste para mobile](https://i.imgur.com/6IgBbSg.png, "Teste Para Mobile")
 
-Este projeto está licenciado sob a **MIT License**.  
+**Teste de Performace e Acessibilidade no Desktop**
+![Imagem representando o teste para mobile](https://i.imgur.com/Z5ZiNOP.png, "Teste Para Desktop")
 
----
 
 ## ✍️ Autor
 

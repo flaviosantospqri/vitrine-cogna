@@ -11,16 +11,14 @@ export const Api = {
   async getAll() {
     // Variáveis de ambiente para controle centralizado da API e cache
     const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-    const REVALIDATE = 60000; // tempo em ms para revalidação do cache (60s)
+    const REVALIDATE = 60000;
 
     try {
       const response = await fetch(BASE_URL, {
-        // Next.js ISR revalidation (incremental static regeneration)
         next: { revalidate: REVALIDATE },
       });
 
       if (!response.ok) {
-        // Mensagem clara e com status HTTP para facilitar debug
         throw new Error(
           `API respondeu com erro: ${response.status} ${response.statusText}`
         );
@@ -29,7 +27,6 @@ export const Api = {
       const data = await response.json();
       return data;
     } catch (error) {
-      // Repassa o erro para a camada de quem chamou a API, já com mensagem contextual
       throw new Error(`Falha ao buscar produtos: ${error.message}`);
     }
   },
@@ -43,7 +40,7 @@ export const Api = {
   async getById(id) {
     // Variáveis de ambiente para controle centralizado da API e cache
     const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-    const REVALIDATE = 60000; // tempo em ms para revalidação do cache (60s)
+    const REVALIDATE = 60000;
 
     if (!id) {
       throw new Error("ID do produto é obrigatório para busca");
