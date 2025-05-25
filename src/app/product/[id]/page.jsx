@@ -1,5 +1,4 @@
 import React from "react";
-import { notFound } from "next/navigation";
 import style from "./product.module.css";
 import { Api } from "@/service/api";
 import CardDetails from "@/components/cardDetails";
