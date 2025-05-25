@@ -10,8 +10,8 @@ const CardDetails = ({ product }) => {
       <article className={style.info_img}>
         <Image
           src={product.image}
-          width={200}
-          height={200}
+          width={300}
+          height={300}
           alt={`imagem representativa do produto ${product.title}`}
           placeholder="blur"
           blurDataURL="/placeholder.jpg"

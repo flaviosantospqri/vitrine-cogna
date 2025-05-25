@@ -19,21 +19,22 @@ const Card = ({ product, skeletonDelay = 100 }) => {
 
   const formattedValue = formatCurrencyBr(product.price);
   return (
-    <article className={style.container}>
-      <Image
-        loading="lazy"
-        src={product.image}
-        width={300}
-        height={200}
-        alt={`imagem representativa do produto ${product.title}`}
-        placeholder="blur"
-        blurDataURL="/placeholder.jpg"
-        style={{ objectFit: "cover" }}
-      />
+    <section className={style.container}>
+      <article className={style.container_img}>
+        <Image
+          loading="lazy"
+          src={product.image}
+          width={250}
+          height={250}
+          alt={`imagem representativa do produto ${product.title}`}
+          placeholder="blur"
+          blurDataURL="/placeholder.jpg"
+        />
+      </article>
       <h3>{product.title}</h3>
       <p>{formattedValue ? formattedValue : product.price}</p>
-      <Link href={`product/${product.id}`}>Ver detalhes</Link>
-    </article>
+      <Link href={`product/${product.id}`}>Ver Detalhes</Link>
+    </section>
   );
 };
 
