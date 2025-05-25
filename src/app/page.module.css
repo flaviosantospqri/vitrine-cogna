@@ -157,3 +157,29 @@
     opacity: 1;
   }
 }
+
+.notfound {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  color: #ffffff;
+
+  h3 {
+    color: #d6cfff;
+  }
+
+  a {
+    background-color: #9b8bff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+    transition: ease-in-out 150ms;
+
+    &:hover {
+      background-color: #2a124a;
+    }
+  }
+}

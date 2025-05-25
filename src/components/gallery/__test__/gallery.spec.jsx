@@ -17,10 +17,10 @@ describe("Gallery Component", () => {
   it("renderiza o título e descrição do banner", () => {
     render(<Gallery products={mockProducts} />);
     expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(
-      "Produtos"
+      "produtos"
     );
     expect(
-      screen.getByText(/Selecione o produto desejado/i)
+      screen.getByText(/Clique em ver detalhes e saiba mais./i)
     ).toBeInTheDocument();
   });
 

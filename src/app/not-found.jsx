@@ -1,10 +1,14 @@
 import React from "react";
+import style from "./page.module.css";
+import Link from "next/link";
 
 const NotFound = () => {
   return (
-    <div>
-      <h1>Não econtrado</h1>
-    </div>
+    <article className={style.notfound}>
+      <h3>Página não encontrada</h3>
+      <p>Você tentou acessar uma página que não está disponível</p>
+      <Link href={"/"}>Retornar a Home</Link>
+    </article>
   );
 };
 

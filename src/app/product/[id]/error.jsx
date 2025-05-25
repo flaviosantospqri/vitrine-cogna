@@ -1,6 +1,6 @@
 "use client";
-
 import Link from "next/link";
+import style from "./product.module.css";
 // Usando o error.js para capturar o erro
 // e exibir uma mensagem personalizada para o usuário
 // e redirecionar para a galeria
@@ -10,9 +10,11 @@ export default function Error({ error }) {
   console.error("Erro capturado na rota [id]:", error);
 
   return (
-    <div>
+    <article className={style.error_page}>
       <h2>Ocorreu um erro ao carregar o produto.</h2>
+      <p>Parece que está tentando acessar um produto, que ainda não temos. </p>
+      <p>Mas fique tranquilo... Amanhã estará disponível</p>
       <Link href={"/"}>Voltar a Galeria</Link>
-    </div>
+    </article>
   );
 }
