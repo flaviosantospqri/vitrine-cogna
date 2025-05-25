@@ -1,11 +1,12 @@
-/**
- * Converte o valor monetário para o formato de moeda brasileiro (BRL).
- * @param {number} value - Valor monetário a ser formatado.
- * @return {string} Valor formatado como moeda brasileira.
- * @throws {Error} Se ocorrer um erro ao formatar o valor.
- */
-
 export const formatCurrencyBr = (value) => {
+  if (value === null) {
+    value = 0;
+  }
+
+  if (value === undefined || (typeof value === "number" && isNaN(value))) {
+    return "NaN";
+  }
+
   try {
     const options = {
       style: "currency",
@@ -20,14 +21,14 @@ export const formatCurrencyBr = (value) => {
   }
 };
 
-/**
- * Converte o valor monetário para o formato de moeda americana (USD).
- * @param {number} value - Valor monetário a ser formatado.
- * @return {string} Valor formatado como moeda americana.
- * @throws {Error} Se ocorrer um erro ao formatar o valor.
- */
-
 export const formatCurrencyUSA = (value) => {
+  if (value === null) {
+    value = 0;
+  }
+  if (value === undefined || (typeof value === "number" && isNaN(value))) {
+    return "NaN";
+  }
+
   try {
     const options = {
       style: "currency",
