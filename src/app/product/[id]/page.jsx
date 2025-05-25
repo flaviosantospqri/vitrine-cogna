@@ -21,9 +21,6 @@ export async function generateMetadata({ params }) {
 const ProductDetails = async ({ params }) => {
   const { id } = await params;
   const product = await Api.getById(id);
-  if (!product) {
-    return notFound();
-  }
 
   // Crio o JSON-LD para SEO, com as informações do produto
   // e o contexto do schema.org
