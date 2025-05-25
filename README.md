@@ -83,7 +83,7 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar
 Caso não queira baixar a aplicação e rodar em sua máquina, pode conferir a aplicação pelo o link abaixo. 
 Sem a necessidade de configurações. 
 
-Abra [https://vitrine-cogna-cfl6.vercel.app/](https://vitrine-cogna-cfl6.vercel.app/) no navegador para visualizar a aplicação.
+Abra [https://vitrine-cogna.vercel.app/](https://vitrine-cogna.vercel.app/) no navegador para visualizar a aplicação.
 
 ---
 
