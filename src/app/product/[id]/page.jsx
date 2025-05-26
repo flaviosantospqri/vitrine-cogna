@@ -45,13 +45,11 @@ const ProductDetails = async ({ params }) => {
   };
   return (
     <section className={style.container}>
-      <ErrorBoundary fallback={Error}>
-        <CardDetails product={product} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </ErrorBoundary>
+      <CardDetails product={product} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </section>
   );
 };
