@@ -20,8 +20,10 @@ export async function generateMetadata({ params }) {
 //matendo os os recursos do SSG
 const ProductDetails = async ({ params }) => {
   const { id } = await params;
+  let product;
+
   try {
-    product = await Api.getById(id);
+    const product = await Api.getById(id);
   } catch (error) {
     console.error("Erro ao buscar produto:", error);
   }
