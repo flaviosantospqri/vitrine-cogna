@@ -6,11 +6,7 @@
 "use client";
 import { useEffect } from "react";
 import style from "./product.module.css";
-const Error = ({ error, reset }) => {
-  useEffect(() => {
-    console.error("Erro capturado na rota [id]:", error);
-  }, [error]);
-
+const Error = () => {
   return (
     <section className={style.error_page}>
       <h2>Produto não encontrado</h2>

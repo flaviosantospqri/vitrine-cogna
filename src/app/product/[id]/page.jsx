@@ -19,23 +19,7 @@ export async function generateMetadata({ params }) {
 //matendo os os recursos do SSG
 const ProductDetails = async ({ params }) => {
   const { id } = await params;
-  let product;
-
-  try {
-    product = await Api.getById(id);
-  } catch (error) {
-    console.error("Erro ao buscar produto:", error);
-  }
-
-  if (!product) {
-    return (
-      <section className={style.error_page}>
-        <h2>Produto não encontrado</h2>
-        <p>Este produto não existe ou ainda não está disponível.</p>
-        <Link href="/">Voltar para a galeria</Link>
-      </section>
-    );
-  }
+  const product = await Api.getById(id);
 
   // Crio o JSON-LD para SEO, com as informações do produto
   // e o contexto do schema.org
