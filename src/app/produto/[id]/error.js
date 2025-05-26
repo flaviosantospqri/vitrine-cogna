@@ -4,7 +4,6 @@
 // Desta forma, posso usar um serviço de monitoramento de erros
 // e ter um controle melhor do que está acontecendo
 "use client";
-import { useEffect } from "react";
 import style from "./product.module.css";
 const Error = () => {
   return (

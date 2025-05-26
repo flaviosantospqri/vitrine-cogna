@@ -32,18 +32,22 @@ const Gallery = ({ products }) => {
     <div className={style.container}>
       <section className={style.content_filter}>
         <h2>Nossos principais produtos</h2>
-        <p>Clique em ver detalhes e saiba mais.</p>
+        <p tabIndex={-1} autoFocus>
+          Clique em ver detalhes e saiba mais.
+        </p>
 
         <article className={style.content_filter_select}>
           <label htmlFor="categoryFilter">Filtrar por categoria:</label>
           <select
+            tabIndex={-1}
+            autoFocus
             id="categoryFilter"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
             style={{ marginLeft: "10px" }}
           >
             {categories.map((cat) => (
-              <option key={cat} value={cat}>
+              <option key={cat} value={cat} autoFocus>
                 {cat === "all" ? "Todas" : cat}
               </option>
             ))}

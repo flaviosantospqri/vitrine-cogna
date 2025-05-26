@@ -18,7 +18,9 @@ const CardDetails = ({ product }) => {
         />
       </article>
       <article className={style.info_product}>
-        <h3 className={style.info_product_title}>{product.title}</h3>
+        <h3 tabIndex={-1} autoFocus className={style.info_product_title}>
+          {product.title}
+        </h3>
         <p className={style.info_product_description}>{product.description}</p>
         <p className={style.info_product_category}>{product.category}</p>
         <p className={style.info_product_price}>
@@ -28,7 +30,9 @@ const CardDetails = ({ product }) => {
           Avaliação: {product.rating.rate} ({product.rating.count})
         </p>
         <p className={style.info_product_status}>Fora do Estoque</p>
-        <Link href={"/"}>Voltar para a vitrine</Link>
+        <Link href={"/"} tabIndex={-1} autoFocus>
+          Voltar para a vitrine
+        </Link>
       </article>
     </section>
   );

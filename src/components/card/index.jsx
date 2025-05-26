@@ -31,9 +31,13 @@ const Card = ({ product, skeletonDelay = 100 }) => {
           blurDataURL="/placeholder.jpg"
         />
       </article>
-      <h3>{product.title}</h3>
+      <h3 tabIndex={-1} autoFocus>
+        {product.title}
+      </h3>
       <p>{formattedValue ? formattedValue : product.price}</p>
-      <Link href={`product/${product.id}`}>Ver Detalhes</Link>
+      <Link href={`produto/${product.id}`} tabIndex={-1} autoFocus>
+        Ver Detalhes
+      </Link>
     </section>
   );
 };
