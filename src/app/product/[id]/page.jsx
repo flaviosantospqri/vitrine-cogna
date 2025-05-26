@@ -20,16 +20,18 @@ export async function generateMetadata({ params }) {
 //matendo os os recursos do SSG
 const ProductDetails = async ({ params }) => {
   const { id } = await params;
-  const product = await Api.getById(id);
+  try {
+    product = await Api.getById(id);
+  } catch (error) {
+    console.error("Erro ao buscar produto:", error);
+  }
 
-  //A captura de erro, em deploy não está funcionando muito bem,
-  //com uma série de inconsistência. Por isso uma resposta direta.
   if (!product) {
     return (
       <section className={style.error_page}>
         <h2>Produto não encontrado</h2>
         <p>Este produto não existe ou ainda não está disponível.</p>
-        <a href="/">Voltar para a galeria</a>
+        <Link href="/">Voltar para a galeria</Link>
       </section>
     );
   }
