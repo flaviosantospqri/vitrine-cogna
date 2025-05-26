@@ -206,3 +206,18 @@ Essas práticas não apenas reduzem o tempo de carregamento como também garante
 ## ✍️ Autor
 
 Desenvolvido por [Flávio Santos](https://github.com/flaviosantospqri)
+
+## 📝 Notas do Dev
+
+Durante o desenvolvimento deste projeto, tomei a decisão consciente de **não utilizar bibliotecas externas de UI ou outras dependências adicionais**.
+
+Essa escolha teve como principais motivações:
+
+- 🔹 **Refinar o domínio dos fundamentos** de HTML, CSS e JavaScript, evitando abstrações e reforçando minha capacidade de construir soluções nativas e eficientes.
+- 🔹 Explorar e demonstrar o **uso pleno dos recursos do Next.js**, como roteamento dinâmico, otimização de imagens, SEO e renderização, sem o suporte de terceiros.
+- 🔹 Garantir uma aplicação **leve, performática e com baixa complexidade de manutenção**, livre de dependências desnecessárias.
+- 🔹 Mostrar minha capacidade de implementar **componentes responsivos e acessíveis**, utilizando boas práticas de desenvolvimento frontend.
+- 🔹 Valorizar a **clareza, legibilidade e simplicidade** do código, mantendo foco na manutenção a longo prazo.
+
+Em suma, priorizei uma abordagem que reforçasse a **compreensão profunda das tecnologias base** e evidenciasse minha capacidade de entregar soluções completas, funcionais e bem estruturadas **sem o apoio de bibliotecas externas**.
+
