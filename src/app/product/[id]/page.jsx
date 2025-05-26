@@ -2,6 +2,7 @@ import React from "react";
 import style from "./product.module.css";
 import { Api } from "@/service/api";
 import CardDetails from "@/components/cardDetails";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -20,7 +21,6 @@ export async function generateMetadata({ params }) {
 const ProductDetails = async ({ params }) => {
   const { id } = await params;
   const product = await Api.getById(id);
-
   // Crio o JSON-LD para SEO, com as informações do produto
   // e o contexto do schema.org
   // O JSON-LD é uma forma de estruturar dados em JSON
@@ -45,11 +45,13 @@ const ProductDetails = async ({ params }) => {
   };
   return (
     <section className={style.container}>
-      <CardDetails product={product} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <ErrorBoundary fallback={Error}>
+        <CardDetails product={product} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </ErrorBoundary>
     </section>
   );
 };
