@@ -27,7 +27,8 @@ export const Api = {
       const data = await response.json();
       return data;
     } catch (error) {
-      throw new Error(`Falha ao buscar produtos: ${error.message}`);
+      console.error("Ocorreu um erro" + error.message);
+      return [];
     }
   },
 
@@ -60,7 +61,10 @@ export const Api = {
       const data = await response.json();
       return data;
     } catch (error) {
-      throw new Error(`Falha ao buscar produto ID=${id}: ${error.message}`);
+      console.error(
+        `Ocorreu um erro o ${id} não foi encontrado` + error.message
+      );
+      return [];
     }
   },
 };
