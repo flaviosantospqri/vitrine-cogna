@@ -32,6 +32,15 @@ const Home = async () => {
           <title>{metadata.title}</title>
           <meta name="description" content={metadata.description} />
         </Head>
+
+        {/* 
+         Optei por manter o banner localmente neste componente,
+         pois ele é simples, exclusivo da página Home e não será reutilizado em outras partes do projeto.
+         Como não há barra de navegação e o banner não possui complexidade alta,
+         desacoplar para um componente separado não traria benefícios significativos.
+         Caso futuramente o banner se torne mais complexo ou reutilizável, podemos avaliar a extração.
+        
+         */}
         <div className={style.container}>
           <div className={style.floating_lights}></div>
           <section className={style.banner}>

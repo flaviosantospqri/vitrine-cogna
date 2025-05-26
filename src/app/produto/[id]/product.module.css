@@ -14,6 +14,7 @@
     flex-direction: column;
     gap: 20px;
     color: #ffffff;
+    text-align: center;
 
     h3 {
         color: #d6cfff;

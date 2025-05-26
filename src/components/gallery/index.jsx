@@ -23,6 +23,10 @@ const Gallery = ({ products }) => {
   //Faço uso do useMemo para filtrar os produtos com base na categoria selecionada
   //Cuidando para que a lista de categorias seja atualizada sempre que os produtos mudarem
   //e evitando re-renderizações desnecessárias
+  //Optei por não criar um componente separado para o filtro de categorias
+  //pois a lógica é simples e não justifica a complexidade adicional
+  //nem usar um gerenciador de estado global como Redux ou Context API
+
   const filteredProducts = useMemo(() => {
     if (selectedCategory === "all") return products;
     return products.filter((p) => p.category === selectedCategory);
@@ -32,9 +36,7 @@ const Gallery = ({ products }) => {
     <div className={style.container}>
       <section className={style.content_filter}>
         <h2>Nossos principais produtos</h2>
-        <p tabIndex={-1} autoFocus>
-          Clique em ver detalhes e saiba mais.
-        </p>
+        <p>Clique em ver detalhes e saiba mais.</p>
 
         <article className={style.content_filter_select}>
           <label htmlFor="categoryFilter">Filtrar por categoria:</label>
@@ -44,10 +46,10 @@ const Gallery = ({ products }) => {
             id="categoryFilter"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            style={{ marginLeft: "10px" }}
+            className={style.select}
           >
             {categories.map((cat) => (
-              <option key={cat} value={cat} autoFocus>
+              <option key={cat} value={cat}>
                 {cat === "all" ? "Todas" : cat}
               </option>
             ))}

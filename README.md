@@ -156,7 +156,13 @@ npx vitest run
 - **Vitest**: Escolha pensada para compatibilidade, performance e futura evolução da stack.
 - **Página de erro personalizada**: Se o usuário acessar um produto inexistente, uma página customizada será exibida.
 - **Página 404 personalizada**: Qualquer rota inválida exibe uma interface amigável ao usuário.
-- **Controlador de estado**: Não foi implementado por simplicidade do projeto atual. Contudo, os componentes foram estruturados de forma a permitir fácil integração futura com ferramentas como Redux ou Zustand.
+- **Controlador de estado**: Não foi implementado por simplicidade do projeto atual. Contudo, os componentes foram estruturados de forma a permitir fácil integração futura.
+com ferramentas como Redux ou Zustand. 
+- **Suspense e ErrorBoundary**: Como a aplicação está bem organizada, com responsabilidades claramente separadas, utilizei os recursos nativos de roteamento do Next.js, implementando os arquivos error.js e loading.js.
+Vale notar que, em alguns deploys, a página de erro pode não funcionar corretamente, pois depende da propagação do erro. Em algumas hospedagens, essa propagação pode não ocorrer, resultando em falhas ou erro 500..
+O Next.js identifica automaticamente o error.js para tratar erros que ocorrem em determinada rota ou componente, exibindo o conteúdo desse arquivo quando um erro é detectado. Da mesma forma, o loading.js é acionado automaticamente pelo Next.js sempre que algum conteúdo da página está sendo carregado no servidor, exibindo uma interface de carregamento até que o conteúdo esteja pronto.
+- **Design**:Optei por um design simples, bonito e leve. Não é algo extremamente sofisticado, mas cumpre bem sua função: é funcional, agradável visualmente e adequado para essa versão beta. Ainda há espaço para evoluções e refinamentos, conforme o projeto amadurecer e as necessidades dos usuários forem melhor identificadas.
+- **Gerenciamento de Foco**: Eu poderia ter utilizado um `useEffect` para implementar um foco personalizado em determinados elementos. No entanto, optei por não seguir esse caminho, pois o uso de efeitos colaterais `(side effects)` no React pode impactar negativamente o processo de Static Site Generation (SSG), uma vez que efeitos não são executados durante a renderização estática. Por isso, preferi utilizar autofocus de forma estratégica em alguns elementos, aproveitando esse recurso nativo do HTML para garantir um foco simples, eficiente e sem comprometer a performance ou a consistência do SSG.
 
 ---
 

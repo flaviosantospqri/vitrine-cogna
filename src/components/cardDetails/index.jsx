@@ -27,12 +27,17 @@ const CardDetails = ({ product }) => {
           {formattedValue ? formattedValue : product.price}
         </p>
         <p className={style.info_product_rating}>
-          Avaliação: {product.rating.rate} ({product.rating.count})
+          Avaliação:{" "}
+          {product.rating.rate
+            ? `${product.rating.rate}% de (${product.rating.count})`
+            : "Este produto ainda não possui avaliações"}
         </p>
+
+        {/*No momento, não há lógica de carrinho ou estoque implementada.
+          Para evitar confundir o usuário, mantemos a mensagem "Fora do Estoque" fixa.
+          Quando o sistema evoluir, podemos adaptar para refletir o estoque real. */}
         <p className={style.info_product_status}>Fora do Estoque</p>
-        <Link href={"/"} tabIndex={-1} autoFocus>
-          Voltar para a vitrine
-        </Link>
+        <Link href={"/"}>Voltar para a vitrine</Link>
       </article>
     </section>
   );

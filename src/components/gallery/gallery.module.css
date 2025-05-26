@@ -67,6 +67,7 @@
         appearance: none;
         outline: none;
         transition: border-color 0.3s ease;
+        margin-left: 10px;
 
         &:focus {
             border-color: #7a5cff;
