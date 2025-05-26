@@ -2,8 +2,7 @@ import React from "react";
 import style from "./product.module.css";
 import { Api } from "@/service/api";
 import CardDetails from "@/components/cardDetails";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-
+import Link from "next/link";
 export async function generateMetadata({ params }) {
   const { id } = await params;
   const product = await Api.getById(id);
@@ -23,7 +22,7 @@ const ProductDetails = async ({ params }) => {
   let product;
 
   try {
-    const product = await Api.getById(id);
+    product = await Api.getById(id);
   } catch (error) {
     console.error("Erro ao buscar produto:", error);
   }
