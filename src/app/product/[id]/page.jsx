@@ -21,6 +21,19 @@ export async function generateMetadata({ params }) {
 const ProductDetails = async ({ params }) => {
   const { id } = await params;
   const product = await Api.getById(id);
+
+  //A captura de erro, em deploy não está funcionando muito bem,
+  //com uma série de inconsistência. Por isso uma resposta direta.
+  if (!product) {
+    return (
+      <section className={style.error_page}>
+        <h2>Produto não encontrado</h2>
+        <p>Este produto não existe ou ainda não está disponível.</p>
+        <a href="/">Voltar para a galeria</a>
+      </section>
+    );
+  }
+
   // Crio o JSON-LD para SEO, com as informações do produto
   // e o contexto do schema.org
   // O JSON-LD é uma forma de estruturar dados em JSON
